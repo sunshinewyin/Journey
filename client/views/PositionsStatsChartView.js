@@ -67,6 +67,17 @@ window.PositionsStatsChartView = Backbone.View.extend({
       plotOptions: {
           column: {
               depth: 25
+          dataLabels: {
+            enabled: true
+          },
+          series:{
+            point: {
+              events: {
+                click: function () {
+                  console.log('series clicked');
+                }
+              }
+            }
           }
       },
       series: [{

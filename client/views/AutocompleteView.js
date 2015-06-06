@@ -5,24 +5,28 @@ window.AutocompleteView = Backbone.View.extend({
   tagName: 'input',
 
   initialize: function() {
-    var availablePositions = [];
+
+    this.$el.autocomplete({
+      source: this.model.get('availablePositions')
+    });
+
 
     // wait until positions received from the server
     this.listenTo(this.model, 'positionsReceived', function() {
 
-      console.log('listening to positioned received in autocomplete view');
-
       for (var key in this.model.attributes) {
         // put all the positions that are in the server into an array that will be used as the reference "source" for the autocomplete
         if(this.model.attributes[key].position_name !== null && this.model.attributes[key].position_name !== undefined) {
-          availablePositions.push(this.model.attributes[key].position_name);
+          this.model.get('availablePositions').push(this.model.attributes[key].position_name);
         }
       }
       // set the source for the autocomplete widget to available positions
       this.$el.autocomplete({
-        source: availablePositions
+        source: this.model.get('availablePositions'),
+        minLength: 2,
       });
     });
+
 
     this.render();
   },
@@ -51,8 +55,9 @@ window.AutocompleteView = Backbone.View.extend({
   },
 
   render: function() {
+
     // replace autocomplete field that already exists on the dom with this autocomplete
-    return $("#autocomplete").html(this.el);
+    return this.el;
   }
 
 });

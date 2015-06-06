@@ -31,8 +31,6 @@ window.EducationChartView = Backbone.View.extend({
     educationData.sort(function(a,b) { return a[1] < b[1]; });
     educationData = educationData.splice(0,10);
 
-    console.log("EDUCATION DATA AFTER SPLICE::::::", educationData);
-
     var chart = {
       chart: {
             type: 'pie',

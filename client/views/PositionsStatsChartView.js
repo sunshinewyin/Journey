@@ -33,14 +33,13 @@ window.PositionsStatsChartView = Backbone.View.extend({
       percentages.push(res[i][1]);
     }
 
-    console.log("xAxis categories passed to table:", names);
-    console.log("yAxis percentages passed to table:", percentages);
 
+var previousPoint = null;
     var chart = {
       chart: {
           renderTo: this.$el,
-          type: 'column',
-          margin: 150,
+          type: 'bar',
+          margin: 100,
           options3d: {
               enabled: false,
               alpha: 15,
@@ -65,18 +64,22 @@ window.PositionsStatsChartView = Backbone.View.extend({
           text: 'Previous Roles:'
       },
       plotOptions: {
-          column: {
-              depth: 25
           dataLabels: {
             enabled: true
           },
           series:{
             point: {
               events: {
-                click: function () {
-                  console.log('series clicked');
+                click: function (event) {
+                  console.log(this);
+
+                    if (previousPoint) {
+                      previousPoint.update({ color: '#7cb5ec' }, true, false);
+                    }
+                    previousPoint = this;
+                    this.update({ color: '#fe5800' });
                 }
-              }
+              }      // this.update({ color: '#fe5800' }, true, false);
             }
           }
       },

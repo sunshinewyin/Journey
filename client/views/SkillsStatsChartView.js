@@ -1,16 +1,11 @@
 window.SkillsStatsChartView = Backbone.View.extend({
-    
+
     initialize: function(){
         console.log("initializing skillsChartView");
         this.render();
     },
 
     render: function(){
-
-
-        console.log("this.model in skills view:", this.model);
-
-        //this.model: {total: 1832, Ruby on Rails: 28, Pair Programming: 2}
 
         var skills = [];
         var skillsNames = [];
@@ -26,8 +21,6 @@ window.SkillsStatsChartView = Backbone.View.extend({
 
         }
 
-        // console.log("skills", skills);
-
         skills.sort(function(a, b){
             return a[1] < b[1];
         });
@@ -40,8 +33,6 @@ window.SkillsStatsChartView = Backbone.View.extend({
             return skillCombo[1];
         });
 
-        console.log("skillsNames xAxis passed to chart:", skillsNames);
-        console.log("skillsPercentages Axis passed to chart:", skillsPercentages);
 
         var skillsChart = {
           chart: {
@@ -56,7 +47,7 @@ window.SkillsStatsChartView = Backbone.View.extend({
                   viewDistance: 25
               }
           },
-          tooltip : { 
+          tooltip : {
             pointFormat : "Value: {point.y:.2f} %"
           },
           xAxis : {

@@ -1,6 +1,6 @@
 window.SkillsStatsChartView = Backbone.View.extend({
 
-    initialize: function(){
+  initialize: function(){
         this.render();
     },
 

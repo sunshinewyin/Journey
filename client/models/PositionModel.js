@@ -10,6 +10,8 @@ window.PositionModel = Backbone.Model.extend({
             })
         });
 
+        console.log("this.model in position model after fetch is:", this.model)
+
     },
 
     createNewThumbnails: function(thumbnailsToCreate) {

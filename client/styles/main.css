@@ -30,7 +30,8 @@ body {
 
 
 .splashBack{
-  background: url(../assets/bg-darkblue.jpg) no-repeat center center fixed;
+  /*background-color: #f5f5f5;*/
+  background: url(../assets/bg-blue.jpg) no-repeat center center fixed;
   height:100vh;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -198,12 +199,17 @@ th {
   outline: none;
 }
 
+.ui-state-focus {
+  background:#E9E9E9;
+  outline:none;
+}
 
 .ui-helper-hidden-accessible {
   display: none;
   position: absolute;
   left:-999em;
 }
+
 
 .profiles {
   padding: 0;

@@ -40,6 +40,8 @@ window.AppModel = Backbone.Model.extend ({
   positionsReceived: function() {
     this.set('positionsCollection', new PositionsCollection(this.get('data')));
     this.trigger('positionsReceived');
+
+    console.log(this.get('positionsCollection'));
 	},
 
 

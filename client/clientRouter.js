@@ -5,7 +5,8 @@ window.ClientRouter = Backbone.Router.extend({
         'viewJourney': 'viewJourney',
         // 'viewJourney/:id': 'viewJourney'
         //'viewJourney/:id': 'viewJourney',
-        'profile/:id': 'viewProfile'
+        'profile/:id': 'viewProfile',
+        'about': 'about'
     },
 
     home: function() {
@@ -16,10 +17,7 @@ window.ClientRouter = Backbone.Router.extend({
 
     viewJourney: function(model) {
 
-        // var path = location.pathname;
-        //console.log('in viewJourney', id);
         $("#mainContent").empty();
-
 
         var journeyView = new JourneyView({
             model: model
@@ -33,8 +31,19 @@ window.ClientRouter = Backbone.Router.extend({
             $('#mainContent').empty();
             var profileView = new ProfileView( { model : profileModel } );
         });
+    },
+
+    about: function() {
+        console.log('got to about');
+        $("#mainContent").empty();
+
+        var aboutUsCollection = new AboutUsCollection(aboutUsData);
+        var aboutUsCollectionView = new AboutUsCollectionView( { collection: aboutUsCollection } );
+
+        console.log('aboutUsCollection', aboutUsCollection);
+        console.log('aboutUsCollectionView', aboutUsCollectionView);
     }
 });
 
-var clientRouter = new ClientRouter();
+window.clientRouter = new ClientRouter();
 Backbone.history.start();

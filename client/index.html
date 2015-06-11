@@ -48,6 +48,9 @@
           </div>
         </div>
       </div>
+      <div class='about'>
+      About
+      </div>
     </div>
   </div>
   <!-- DEPENDENCIES -->
@@ -67,9 +70,15 @@
   <script src= "bower_components/highcharts-release/highcharts-more.js"></script>
 
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-  
+
   <!-- ALL OUR JS IN ONE FILE -->
   <!--script src="all.min.js"></script-->
+
+  <!-- ABOUT US DATA -->
+  <script src="AboutUsData.js"></script>
+
+  <script src="models/AboutUsModel.js"></script>
+  <script src="collections/AboutUsCollection.js"></script>
   <script src="models/ProfileModel.js"></script>
   <script src="models/ThumbnailModel.js"></script>
   <script src="collections/ThumbnailsCollection.js"></script>
@@ -85,6 +94,7 @@
   <script src="models/TimelineItemModel.js"></script>
   <script src="collections/TimelineItemsCollection.js"></script>
 
+
   <script src="views/DiscoverPathsView.js"></script>
   <script src="views/PositionsCollectionView.js"></script>
   <script src="views/PositionView.js"></script>
@@ -98,10 +108,12 @@
   <script src="views/JourneyView.js"></script>
   <script src="views/ProfileCardView.js"></script>
   <script src="views/ProfileView.js"></script>
-  
+  <script src="views/AboutUsView.js"></script>
+  <script src="views/AboutUsCollectionView.js"></script>
+
   <!-- ROUTER -->
-  <script src= "clientRouter.js"></script>
-  
+  <script src= "ClientRouter.js"></script>
+
   <script>
   $(function() {
 
@@ -113,6 +125,11 @@
     $(".onePath").click(function(e) {
       appView.discoverPathsView.journeyClickHandler(e);
     });
+
+    $(".about").click(function(e){
+      clientRouter.navigate("about", {trigger: true});
+    })
+
 
   });
   </script>

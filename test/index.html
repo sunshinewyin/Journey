@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Jasmine Spec Runner</title>
+        <link rel="stylesheet" href="bower_components/jasmine/lib/jasmine-core/jasmine.css">
+    </head>
+    <body>
+        <script src="bower_components/jasmine/lib/jasmine-core/jasmine.js"></script>
+        <script src="bower_components/jasmine/lib/jasmine-core/jasmine-html.js"></script>
+
+                <!-- include source files here... -->
+        <script src="../client/bower_components/jquery/dist/jquery.js"></script>
+        <script src="../client/bower_components/underscore/underscore.js"></script>
+        <script src="../client/bower_components/backbone/backbone.js"></script>
+        <script src="../client/bower_components/highcharts-release/highcharts.js"></script>
+        <script src="../client/bower_components/highcharts-release/highcharts-3d.js"></script>
+        <script src="../client/bower_components/highcharts-release/highcharts-more.js"></script>
+        <script src="../client/bower_components/d3/d3.min.js"></script>
+
+        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+  <!-- ALL OUR JS IN ONE FILE -->
+  <!--script src="all.min.js"></script-->
+
+  <!-- ABOUT US DATA -->
+          <script src="../client/models/ProfileModel.js"></script>
+          <script src="../client/models/FilterModel.js"></script>
+          <script src="../client/models/ThumbnailModel.js"></script>
+          <script src="../client/collections/ThumbnailsCollection.js"></script>
+          <script src="../client/views/SimilarPositionsView.js"></script>
+          <script src="../client/models/SimilarPeopleModel.js"></script>
+          <script src="../client/models/PositionModel.js"></script>
+          <script src="../client/collections/PositionsCollection.js"></script>
+          <script src="../client/collections/FiltersCollection.js"></script>
+          <script src="../client/models/NavigationModel.js"></script>
+          <script src="../client/models/AppModel.js"></script>
+
+          <script src="../client/views/AutocompleteView.js"></script>
+          <script src="../client/views/NavBarView.js"></script>
+          <script src="../client/views/ThumbnailView.js"></script>
+          <script src="../client/views/ThumbnailsCollectionView.js"></script>
+          <script src="../client/views/FilterView.js"></script>
+          <script src="../client/views/FiltersCollectionView.js"></script>
+
+
+          <script src="../client/models/TimelineItemModel.js"></script>
+          <script src="../client/collections/TimelineItemsCollection.js"></script>
+          <script src="../client/models/TimelineModel.js"></script>
+
+
+          <script src="../client/views/TimeBlockView.js"></script>
+          <script src="../client/views/TimelineView.js"></script>
+          <script src="../client/views/PositionsCollectionView.js"></script>
+          <script src="../client/views/PositionView.js"></script>
+          <script src="../client/views/AppView.js"></script>
+          <script src="../client/views/PositionsStatsChartView.js"></script>
+          <script src="../client/views/ExperienceView.js"></script>
+          <script src="../client/views/EducationChartView.js"></script>
+          <script src="../client/views/EducationView.js"></script>
+          <script src="../client/views/SkillsStatsChartView.js"></script>
+          <script src="../client/views/SkillsView.js"></script>
+          <script src="../client/views/JourneyView.js"></script>
+          <script src="../client/views/ProfileCardView.js"></script>
+          <script src="../client/views/ProfileView.js"></script>
+          <script src="../client/views/NavigationView.js"></script>
+
+                <!-- ROUTER -->
+          <script src="../client/clientRouter.js"></script>
+
+
+
+
+        <!-- include spec files here... -->
+        <script src="spec/test.js"></script>
+
+        <script>
+            (function() {
+                var jasmineEnv = jasmine.getEnv();
+                jasmineEnv.updateInterval = 1000;
+                var htmlReporter = new jasmine.HtmlReporter();
+                jasmineEnv.addReporter(htmlReporter);
+                jasmineEnv.specFilter = function(spec) {
+                    return htmlReporter.specFilter(spec);
+                };
+                var currentWindowOnload = window.onload;
+                window.onload = function() {
+                    if (currentWindowOnload) {
+                        currentWindowOnload();
+                    }
+                    execJasmine();
+                };
+                function execJasmine() {
+                    jasmineEnv.execute();
+                }
+            })();
+        </script>
+    </body>
+</html>

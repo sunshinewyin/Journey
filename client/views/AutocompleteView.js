@@ -8,7 +8,10 @@ window.AutocompleteView = Backbone.View.extend({
 
     this.$el.autocomplete({
       source: this.model.get('availablePositions'),
-    });
+      minLength: 0
+    }).focus(function() {
+              $(this).autocomplete("search", "");
+            });
 
     // wait until positions received from the server
     this.listenTo(this.model, 'positionsReceived', function() {
@@ -23,7 +26,10 @@ window.AutocompleteView = Backbone.View.extend({
       // set the source for the autocomplete widget to available positions
       this.$el.autocomplete({
         source: this.model.get('availablePositions'),
-      });
+        minLength: 0
+      }).focus(function() {
+              $(this).autocomplete("search", "");
+            });
     });
 
 
